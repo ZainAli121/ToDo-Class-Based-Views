@@ -1,11 +1,16 @@
 {% extends 'todo/main.html' %}
+{% load static %}
 {% block content %}
 
-<a href="{% url 'tasks' %}">Go Back</a>
-<form action="" method="post">
-    {% csrf_token %}
-    <p>Are you sure yu want to delete "{{task}}" Task</p>
-    <button type="submit">Delete</button>
-</form>
+<div class="create-task">
+    <form action="" method="post">
+        {% csrf_token %}
+        <p>Do you really want to delete "{{task}}" Task</p>
+        <div class="create-buttons" id="delete-task-btns">
+            <button type="submit" id="delete-task-btn">Delete</button>
+            <a href="{% url 'tasks' %}">Go Back</a>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

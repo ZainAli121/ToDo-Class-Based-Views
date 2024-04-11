@@ -1,0 +1,76 @@
+.create-task{
+    min-height: 500px;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-family: "Nunito Sans", sans-serif;
+}
+.create-task h2{
+    display: flex;
+    justify-content: center;
+    color: #1f2c3d;
+    font-family: "Bungee Spice", sans-serif;
+    font-size: 3rem;
+}
+
+.create-task form{
+    min-height: 300px;
+    outline: none;
+    background-color: rgb(199, 219, 235);
+}
+
+.create-task form input,textarea{
+    outline: none;
+    border-radius: 1vmax;
+    padding: 1vmax;
+    margin-top: 1vmax;
+}
+
+.create-buttons{
+    display: flex;
+    margin-top: 1.7vmax;
+}
+
+.create-buttons button{
+    background-color: rgb(234, 104, 11);
+    border-radius: 1vmax;
+    padding: 1.5vmax;
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+}
+
+.create-buttons a {
+    background-color: rgb(51, 127, 32);
+    border-radius: 1vmax;
+    padding: 1vmax;
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+    margin-left: 2vmax;
+}
+
+#delete-task-btns{
+    justify-content: center;
+}
+
+#delete-task-btn{
+    background-color: red;
+}
+
+#login-btn{
+    margin-top: 2vmax;
+    background-color: rgb(51, 127, 32);
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+    margin-left: 2vmax;
+}
+
+.login-form a, .register-form a{
+    text-decoration: none;
+    color: rgb(248, 104, 1);
+}

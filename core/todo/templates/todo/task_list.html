@@ -1,41 +1,57 @@
 {% extends 'todo/main.html' %}
+{% load static %}
 {% block content %}
-
+<div class="taskList">
 {% if request.user.is_authenticated %}
+<div class="nav">
     <h3><p>Welcome {{request.user.username}}</p></h3>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit">Logout</button>
-    </form>
+
+    <div class="search">
+        <form action="" method="get">
+            <input type="text" name="search" placeholder="Search..." value="{{search_input}}" class="input_query">
+            <input type="submit" value="Search" class="search-btn">
+        </form>
+    </div>
+
+    <div class="logout-form">
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+                <img src="{% static 'images/logout.svg' %}" alt="">
+                <button type="submit">Logout</button>
+        </form>
+    </div>
     
-{% else %}
+    {% else %}
     <a href="{% url 'login' %}">Login</a>
+    
+    {% endif %}
+</div>
 
-{% endif %}
-
-<form action="" method="get">
-    <input type="text" name="search" placeholder="Search..." value="{{search_input}}">
-    <input type="submit" value="Search">
-</form>
-
+<div class="leftContainer">
 <h1>ToDo</h1>
-<a href="{% url 'create-task' %}">Add Task</a>
-<table>
-    <thead>
-        <tr>
-            <th>Task</th>
-            <th></th>
-        </tr>
+<div class="addTask">
+    <p>Wanna Manage Your Tasks?</p>
+    <a href="{% url 'create-task' %}">Add Task</a>
+</div>
 
         {% for task in tasks %}
-        <tr>
-            <td>{{task.title}}</td>
-            <td><a href="{% url 'task' task.id %}">View</td></a>
-            <td><a href="{% url 'update-task' task.id %}">Edit</td></a>
-            <td><a href="{% url 'delete-task' task.id %}">Delete</td></a>
-        </tr>
-        {% endfor %}
-    </thead>
-</table> 
-
+        <div class="task">
+            <div class="task_svg">
+                <img src="{% static 'images/dot.svg' %}" alt="Not found"> 
+            </div>
+            <h3>{{task.title}}</h3>
+            <div class="delete_task">
+                <a href="{% url 'delete-task' task.id %}">
+                    <img src="{% static 'images/delete.svg' %}" alt="Not found">
+                </a>
+            </div>
+            <div class="edit_task">
+                <a href="{% url 'update-task' task.id %}">
+                    <img src="{% static 'images/edit.svg' %}" alt="Not found">
+                </a>                
+            </div>
+        </div>
+        {% endfor %} 
+</div>
+</div>
 {% endblock %}

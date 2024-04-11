@@ -1,13 +1,17 @@
 {% extends 'todo/main.html' %}
+{% load static %}
 {% block content %}
 
-<h2>Create task</h1>
-<form method="post" action="">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit">Add</button>
-<a href="{% url 'tasks' %}">Cancel</a>
-
-</form>
+<div class="create-task">
+    <h2>Create task</h1>
+        <form method="post" action="" class="create-task">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="create-buttons">
+                <button type="submit">Add</button>
+                <a href="{% url 'tasks' %}">Cancel</a>
+            </div>
+        </form>
+</div>
 
 {% endblock %}
